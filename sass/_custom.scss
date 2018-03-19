@@ -139,6 +139,13 @@ input {
   animation: bgChange 3s ease forwards;
 }
 
+.navy {
+  transition: opacity 1s ease;
+  background: $background-color;
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* diff */
 
 .fadeIn {

@@ -1,7 +1,7 @@
 // Animation ======
 .firefly {
-  -webkit-animation: firefly 4s ease forwards;
-  animation: firefly 4s ease forwards;
+  -webkit-animation: firefly 4s ease forwards infinite;
+  animation: firefly 4s ease forwards infinite;
 }
 
 @keyframes firefly
@@ -15,7 +15,7 @@
 }
 
 #gooLoader {
-  width: 250px;
+  width: 200px;
   height: 40px;
   margin: 100px auto;
   position: relative;

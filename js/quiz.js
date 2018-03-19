@@ -1,15 +1,12 @@
-let expiredDate = new Date();
-expiredDate.setHours(expiredDate.getHours() + 14);
-
 let quiz = [
 	{
-		q: "크팩은 무엇의 줄임말일까요?",
-		e: "",
+		q: "크팩은 무엇의",
+		e: "줄임말일까요?",
 		a: "크리에이티브팩토리"
 	},
 	{
 		q: "바지걸이 뒤쪽을 확인하시오.",
-		e: "손잡이에 적힌 다섯글자 회사이름은?",
+		e: "손잡이에 적힌 5글자 회사이름은?",
 		a: "유한킴벌리"
 	},
 	{
@@ -28,8 +25,8 @@ let quiz = [
 		a: "띠뚜"
 	},
 	{
-		q: "오늘 재윤이가 들은 수업 이름을 쓰시오",
-		e: "띄어쓰기 없이 쓰시오",
+		q: "오늘 재윤이가 들은",
+		e: "수업 이름을 쓰시오",
 		a: "자료구조"
 	},
 	{
@@ -42,22 +39,34 @@ let quiz = [
 		e: "천천히 여시오",
 		a: "생일축하해"
 	}
-]
+];
+
+let expiredDate = new Date();
+expiredDate.setHours(expiredDate.getHours() + 14);
+
+let curr = 0;
 
 // init 
 // 첫번째 퀴즈 보여주기
 // curr 업데이트 후 cookie에 저장
-if ( !getCookie("current") ) {
-	document.querySelector(".center-x").innerHTML = "로그인 실패";
-}
-else {
+if ( getCookie("current") ) {
 	let num = getCookie("current");
 	showQuiz( num );
 }
 
-// submit 누르면
-// curr로 답체크
-
+document.querySelector("#submit").onclick = function() {
+	let answer = document.getElementById("answer");
+	if ( checkAnswer(answer.value, curr) ) {
+		curr++;
+		if ( curr >= 8) {
+    		window.location.href="yay"
+		}
+		showQuiz(curr);
+	}
+	else {
+		answer.classList.add("error");
+	}
+}
 
 // 틀리면 틀림 표시
 
@@ -86,13 +95,19 @@ function getCookie(cookieName) {
 }
 
 function showQuiz(i) {
-	document.querySelector("#question").innerHTML = "<strong>" + quiz[i].q + "</strong><br>" + quiz[i].e;
+	document.querySelector("#loader").style.opacity = 1;
+	answer.classList.remove("error");
+	answer.value = "";
+	setTimeout( function() {
+		document.querySelector("#question").innerHTML = "<strong>" + quiz[i].q + "</strong><br>" + quiz[i].e;
+		document.querySelector("#loader").style.opacity = 0;
+	}, 1500);
 }
 
-function showLoading() {
-	
-}
-
-function checkAnswer() {
-
+function checkAnswer(val, i) {
+  if (val === quiz[i].a) {
+  	updateCookie(i);
+    return true;
+  }
+  return false;
 }
