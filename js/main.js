@@ -42,7 +42,7 @@ let countdown = new Countdown({
     msgAfter: "",
     msgPattern: "{hours} 시간&nbsp; {minutes} 분&nbsp; {seconds} 초",
     dateStart: new Date(),
-    dateEnd: new Date('2018/03/19 20:55'), // 20 00:00
+    dateEnd: new Date('2018/03/20 00:00'), // 20 00:00
     leadingZeros: true,
     onEnd: function() {
       showStart();
@@ -50,7 +50,7 @@ let countdown = new Countdown({
 });
 
 // Init
-let bd = new Date('2018/03/19 20:55'),
+let bd = new Date('2018/03/20 00:00'),
     now = new Date();
 if (bd < now) {
   document.querySelector(".help").remove();

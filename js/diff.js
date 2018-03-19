@@ -110,10 +110,63 @@ window.addEventListener('resize', function() {
   fitToScreen(canvas);
 });
 
-document.querySelector('body').appendChild(canvas);
 fitToScreen(canvas);
 
 (function animationLoop() {
   window.requestAnimationFrame(animationLoop);
   render();
 })();
+
+setTimeout(function() {
+  document.querySelector("#talk h2").classList.remove("fadeIn");
+  document.querySelector("#talk h2").classList.add("fadeOut");
+}, 2000);
+
+setTimeout(function() {
+  document.querySelector("#talk").innerHTML = "<h2 class='thin fadeIn'><strong>선물</strong> 받고싶지?</h2>";
+}, 3000);
+
+setTimeout(function() {
+  document.querySelector("#talk h2").classList.remove("fadeIn");
+  document.querySelector("#talk h2").classList.add("fadeOut");
+}, 5000);
+
+setTimeout(function() {
+  document.querySelector("#talk").innerHTML = "<h2 class='thin fadeIn'><strong>퀴즈</strong>를 잘 풀어봐</h2>";
+}, 6000);
+
+setTimeout(function() {
+  document.querySelector("#talk h2").classList.remove("fadeIn");
+  document.querySelector("#talk h2").classList.add("fadeOut");
+}, 8000);
+
+setTimeout(function() {
+  document.querySelector("#talk").remove();
+  document.querySelector("#first").classList.remove("none");
+  document.querySelector("#first").classList.add("box");
+}, 10000);
+
+
+document.querySelector("#submit").onclick = function() {
+  let pw = document.getElementById("password");
+  if ( checkAnswer(pw.value) ) {
+    window.location.href="quiz"
+  }
+  else {
+    pw.classList.add("error")
+  }
+}
+
+function checkAnswer(val) {
+  if (val === "thdwodbs1!") {
+
+    let expiredDate = new Date();
+    expiredDate.setHours(expiredDate.getHours() + 14);
+
+    document.cookie = "current=0;expires=" + expiredDate.toUTCString(); + "domain=jisu.jaeyoon.io;path=/"
+
+    return true;
+  }
+  return false;
+}
+
