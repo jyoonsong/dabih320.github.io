@@ -50,8 +50,8 @@ let curr = 0;
 // 첫번째 퀴즈 보여주기
 // curr 업데이트 후 cookie에 저장
 if ( getCookie("current") ) {
-	let num = getCookie("current");
-	showQuiz( num );
+	curr = getCookie("current");
+	showQuiz( curr );
 }
 
 document.querySelector("#submit").onclick = function() {
