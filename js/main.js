@@ -50,7 +50,7 @@ let countdown = new Countdown({
 });
 
 // Init
-let bd = new Date('2020/03/20 00:00'),
+let bd = new Date('2019/03/20 00:00'),
     now = new Date();
 if (bd < now) {
   document.querySelector(".help").remove();
