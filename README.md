@@ -1,2 +1,7 @@
 # dabih320.github.io
-For you https://jisu.jaeyoon.io
+
+### Happy Birthday
+2018.03.20
+
+### TODO
+deploy https://jisu.jaeyoon.io
