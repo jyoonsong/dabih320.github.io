@@ -4,4 +4,4 @@
 2018.03.20
 
 ### TODO
-deploy https://jisu.jaeyoon.io
+Use custom domain https://jisu.jaeyoon.io
