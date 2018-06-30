@@ -42,7 +42,7 @@ let countdown = new Countdown({
     msgAfter: "",
     msgPattern: "{hours} 시간&nbsp; {minutes} 분&nbsp; {seconds} 초",
     dateStart: new Date(),
-    dateEnd: new Date('2019/03/20 00:00'), // 20 00:00
+    dateEnd: new Date('2020/03/20 00:00'), // 20 00:00
     leadingZeros: true,
     onEnd: function() {
       showStart();
